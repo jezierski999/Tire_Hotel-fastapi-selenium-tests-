@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reifen Hotel</title>
+    <style>
+        button {
+            margin: 0.5em 0;
+            padding: 0.5em;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #1e1e2e;
+            color: #ced7f5;
+            border-style: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background-color: #12121c;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ced7f5;
+            font-size: 40px;
+        }
+
+        input[type="text"] {
+            margin: 1%;
+            width: 98%;
+            font-size: 16px;
+            border-radius: 10px;
+            justify-content: center;
+            box-sizing: border-box;
+            background-color: #30304b;
+            color: #ced7f5;
+            border-color: #30304b;
+            border: 1px solid #30304b;
+            padding: 0.5em;
+            border-style: none;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 0px 0;
+        }
+
+        .field {
+            background-color: #191926;
+            color: #ced7f5;
+            padding: 0.5%;
+            border-radius: 10px;
+            min-width: 50px;
+            text-align: left;
+            justify-content: center;
+            margin-top: 0.5%;
+            margin-bottom: 0.5%;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-size: 12px;
+            margin-bottom: 1%;
+            margin-left: 2%;
+            color: #eeeeee;
+            border-radius: 10px;
+            justify-content: center;
+        }
+
+        .field select {
+            width: 98%;
+            margin: 1%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid #30304b;
+            background-color: #30304b;
+            color: #ced7f5;
+            box-sizing: border-box;
+        }
+
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #000;
+            border-radius: 10px;
+            margin-top: 0.5%;
+            overflow: hidden;
+            /* ważne! */
+        }
+
+        th,
+        td {
+            border: none;
+            text-align: left;
+            color: #ced7f5;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .container {
+            display: flex;
+            gap: 1rem;
+            margin: 2%;
+        }
+
+        .half {
+            flex: 1;
+            /* czyli 50% */
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 1441px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .half {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Tire Hotel</h1>
+
+
+
+    <div class="container">
+        <div class="half">
+            <div class="input" style="width: 40%; margin-left: 0%; margin-bottom: 2%;">
+                <input id="search" type="text" placeholder="Search by surname...">
+            </div>
+
+            <div id="customer-list"></div>
+        </div>
+
+
+        <div class="half">
+            <div class="field" style="width: 100%; background-color: #30304b;">
+
+                <div class="row">
+                    <div class="field" style="width: 50%;">
+                        <label for="Surname">Surname</label>
+                        <input type="text" id="surname" placeholder="Enter surname..." />
+                    </div>
+                    <div class="field" style="width: 50%;">
+                        <label for="firstname">First name</label>
+                        <input type="text" id="firstname" placeholder="Enter first name..." />
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="field" style="width: 100%;">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" placeholder="Enter address..." />
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="field" style="width: 50%;">
+                        <label for="season">Season:</label><br>
+                        <select id="season" name="season">
+                            <option value="">-- Select season --</option>
+                            <option value="Winter">Winter</option>
+                            <option value="Summer">Summer</option>
+                            <option value="All-season">All-season</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 50%;">
+                        <label for="rims">Rims:</label><br>
+                        <select id="rims" name="rims">
+                            <option value="">-- Select rims --</option>
+                            <option value="Alloy rims">Alloy rims</option>
+                            <option value="Steel rims">Steel rims</option>
+                            <option value="Tires only">Tires only</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="field" style="width: 40%;">
+                        <label for="brand">Front tire - Brand:</label><br>
+                        <select id="brand_front" name="brand_front">
+                            <option value="">-- Select brand --</option>
+                            <option value="michelin">Michelin</option>
+                            <option value="continental">Continental</option>
+                            <option value="goodyear">Goodyear</option>
+                            <option value="pirelli">Pirelli</option>
+                            <option value="bridgestone">Bridgestone</option>
+                            <option value="other">other</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 20%;">
+                        <label for="width_front">Width</label><br>
+                        <select id="width_front" name="width_front">
+                            <option value="">---</option>
+                            <option value="105">105</option>
+                            <option value="115">115</option>
+                            <option value="125">125</option>
+                            <option value="135">135</option>
+                            <option value="145">145</option>
+                            <option value="155">155</option>
+                            <option value="165">165</option>
+                            <option value="175">175</option>
+                            <option value="185">185</option>
+                            <option value="195">195</option>
+                            <option value="205">205</option>
+                            <option value="215">215</option>
+                            <option value="225">225</option>
+                            <option value="235">235</option>
+                            <option value="245">245</option>
+                            <option value="255">255</option>
+                            <option value="265">265</option>
+                            <option value="275">275</option>
+                            <option value="285">285</option>
+                            <option value="295">295</option>
+                            <option value="305">305</option>
+                            <option value="315">315</option>
+                            <option value="325">325</option>
+                            <option value="335">335</option>
+                            <option value="345">345</option>
+                            <option value="355">355</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 20%;">
+                        <label for="ratio_front">Ratio</label>
+                        <select id="ratio_front" name="ratio_front">
+                            <option value="">--</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                            <option value="60">60</option>
+                            <option value="65">65</option>
+                            <option value="70">70</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 20%;">
+                        <label for="diameter_front">Diameter</label>
+                        <select id="diameter_front" name="diameter_front">
+                            <option value="">--</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field" style="width: 10%;">
+                        <select id="fl" name="fl">
+                            <option value="">fl</option>
+                            <option value="0">0</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 10%;">
+                        <select id="fr" name="fr">
+                            <option value="">fr</option>
+                            <option value="0">0</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="field" style="width: 10%;">
+                        <select id="rl" name="rl">
+                            <option value="">rl</option>
+                            <option value="0">0</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 10%;">
+                        <select id="rr" name="rr">
+                            <option value="">rr</option>
+                            <option value="0">0</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="field" style="width: 40%;">
+                        <label for="brand_rear">Rear tire - Brand:</label><br>
+                        <select id="brand_rear" name="brand_rear">
+                            <option value="">-- Select brand --</option>
+                            <option value="michelin">Michelin</option>
+                            <option value="continental">Continental</option>
+                            <option value="goodyear">Goodyear</option>
+                            <option value="pirelli">Pirelli</option>
+                            <option value="bridgestone">Bridgestone</option>
+                            <option value="inna">inna</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 20%;">
+                        <label for="width_rear">Width</label><br>
+                        <select id="width_rear" name="width_rear">
+                            <option value="">---</option>
+                            <option value="105">105</option>
+                            <option value="115">115</option>
+                            <option value="125">125</option>
+                            <option value="135">135</option>
+                            <option value="145">145</option>
+                            <option value="155">155</option>
+                            <option value="165">165</option>
+                            <option value="175">175</option>
+                            <option value="185">185</option>
+                            <option value="195">195</option>
+                            <option value="205">205</option>
+                            <option value="215">215</option>
+                            <option value="225">225</option>
+                            <option value="235">235</option>
+                            <option value="245">245</option>
+                            <option value="255">255</option>
+                            <option value="265">265</option>
+                            <option value="275">275</option>
+                            <option value="285">285</option>
+                            <option value="295">295</option>
+                            <option value="305">305</option>
+                            <option value="315">315</option>
+                            <option value="325">325</option>
+                            <option value="335">335</option>
+                            <option value="345">345</option>
+                            <option value="355">355</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 20%;">
+                        <label for="ratio_rear">Ratio</label>
+                        <select id="ratio_rear" name="ratio_rear">
+                            <option value="">--</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                            <option value="60">60</option>
+                            <option value="65">65</option>
+                            <option value="70">70</option>
+                        </select>
+                    </div>
+                    <div class="field" style="width: 20%;">
+                        <label for="diameter_rear">Diameter</label>
+                        <select id="diameter_rear" name="diameter_rear">
+                            <option value="">--</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="field" style="width: 100%;">
+                        <label for="note">Note</label>
+                        <input type="text" id="note" placeholder="Enter note..." />
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <button id="submit-btn" onclick="submitForm()">Add</button>
+                    <button id="clear-btn" onclick="clearForm()">Clear</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <script>
+        // Base URL of the FastAPI backend
+        const apiUrl = "http://192.168.1.254:8000";
+        let editingcustomerId = null; // Tracks whether we are editing or adding a customer
+
+
+
+        async function fetchcustomers() {
+            const res = await fetch(`${apiUrl}/customers/`);
+            allcustomers = await res.json();
+
+            renderTable(allcustomers);
+        }
+
+
+
+
+        function renderTable(customers) {
+            const list = document.getElementById("customer-list");
+            list.innerHTML = "";
+
+            customers.sort((a, b) => a.surname.localeCompare(b.surname));
+
+            const table = document.createElement("table");
+            table.style.width = "100%";
+
+
+            table.style.borderCollapse = "separate";
+            table.style.borderSpacing = "0";
+            table.style.borderRadius = "10px";
+            table.style.overflow = "hidden"; // kluczowe!
+            table.style.border = "2px solid #30304b";
+
+
+            // Stylowanie nagłówków i komórek
+            const style = document.createElement("style");
+            style.textContent = `
+                    table, th, td {
+                        border: 2px solid #30304b;
+                    }
+                    th, td {
+                        text-align: left;
+                        padding: 10px;
+                    }
+                    th {
+                        background-color: #30304b;
+                    }
+                `;
+            document.head.appendChild(style);
+            const header = `
+        <tr>
+                <th>Surname</th>
+                <th>First name</th>
+                <th>Season</th>
+                <th>Rims</th>
+                <th>Option</th>
+        </tr>
+    `;
+            table.innerHTML = header;
+
+            customers.forEach(customer => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                <td>${customer.surname}</td>
+                <td>${customer.firstname}</td>
+                <td>${customer.season}</td>
+                <td>${customer.rims}</td>
+            <td>
+                <button onclick="editcustomer(${customer.id}, '${customer.surname}', '${customer.firstname}', '${customer.address}', '${customer.season}', '${customer.rims}', '${customer.brand_front}',
+                    '${customer.width_front}', '${customer.ratio_front}', '${customer.diameter_front}', '${customer.fl}', '${customer.fr}', '${customer.rl}', '${customer.rr}', '${customer.brand_rear}',
+                    '${customer.width_rear}', '${customer.ratio_rear}', '${customer.diameter_rear}', '${customer.note}')">Show / Edit</button>
+                <button onclick="deletecustomer(${customer.id})">Delete</button>
+            </td>
+        `;
+                table.appendChild(row);
+            });
+
+            list.appendChild(table);
+        }
+
+
+        document.getElementById("search").addEventListener("input", function () {
+            const query = this.value.toLowerCase();
+
+            const filtered = allcustomers.filter(customer =>
+                customer.surname.toLowerCase().startsWith(query)  // Dopasowanie na początek nazwiska
+            );
+
+            renderTable(filtered);
+        });
+
+
+
+        async function submitForm() {
+            const surname = document.getElementById("surname").value;
+            const firstname = document.getElementById("firstname").value;
+            const address = document.getElementById("address").value;
+            const season = document.getElementById("season").value;
+            const rims = document.getElementById("rims").value;
+            const brand_front = document.getElementById("brand_front").value;
+            const width_front = document.getElementById("width_front").value;
+            const ratio_front = document.getElementById("ratio_front").value;
+            const diameter_front = document.getElementById("diameter_front").value;
+            const fl = document.getElementById("fl").value;
+            const fr = document.getElementById("fr").value;
+            const rl = document.getElementById("rl").value;
+            const rr = document.getElementById("rr").value;
+            const brand_rear = document.getElementById("brand_rear").value;
+            const width_rear = document.getElementById("width_rear").value;
+            const ratio_rear = document.getElementById("ratio_rear").value;
+            const diameter_rear = document.getElementById("diameter_rear").value;
+            const note = document.getElementById("note").value;
+
+            const payload = JSON.stringify({
+                surname,
+                firstname,
+                address,
+                season,
+                rims,
+                brand_front,
+                width_front,
+                ratio_front,
+                diameter_front,
+                fl,
+                fr,
+                rl,
+                rr,
+                brand_rear,
+                width_rear,
+                ratio_rear,
+                diameter_rear,
+                note
+            });
+
+            console.log("Wysyłany payload JSON:", payload);
+
+            const headers = { "Content-Type": "application/json" };
+
+            if (editingcustomerId) {
+                // Update existing customer
+                await fetch(`${apiUrl}/customers/${editingcustomerId}`, {
+                    method: "PUT",
+                    headers,
+                    body: payload
+                });
+            } else {
+                // Create new customer
+                await fetch(`${apiUrl}/customers/`, {
+                    method: "POST",
+                    headers,
+                    body: payload
+                });
+            }
+            fetchcustomers();  // Refresh customer list
+            clearForm();   // Reset form fields
+        }
+
+        // Populates the form with existing customer data for editing
+        function editcustomer(id, surname, firstname, address, season, rims, brand_front, width_front, ratio_front, diameter_front,
+            fl, fr, rl, rr, brand_rear, width_rear, ratio_rear, diameter_rear, note) {
+            document.getElementById("surname").value = surname;
+            document.getElementById("firstname").value = firstname;
+            document.getElementById("address").value = address;
+            document.getElementById("season").value = season;
+            document.getElementById("rims").value = rims;
+            document.getElementById("brand_front").value = brand_front;
+            document.getElementById("width_front").value = width_front;
+            document.getElementById("ratio_front").value = ratio_front;
+            document.getElementById("diameter_front").value = diameter_front;
+            document.getElementById("fl").value = fl;
+            document.getElementById("fr").value = fr;
+            document.getElementById("rl").value = rl;
+            document.getElementById("rr").value = rr;
+            document.getElementById("brand_rear").value = brand_rear;
+            document.getElementById("width_rear").value = width_rear;
+            document.getElementById("ratio_rear").value = ratio_rear;
+            document.getElementById("diameter_rear").value = diameter_rear;
+            document.getElementById("note").value = note;
+
+            document.getElementById("submit-btn").textContent = "Save";
+            editingcustomerId = id;
+        }
+
+        // Clears the form and resets state
+        function clearForm() {
+            document.getElementById("search").value = "";
+            document.getElementById("surname").value = "";
+            document.getElementById("firstname").value = "";
+            document.getElementById("address").value = "";
+            document.getElementById("season").value = "";
+            document.getElementById("rims").value = "";
+            document.getElementById("brand_front").value = "";
+            document.getElementById("width_front").value = "";
+            document.getElementById("ratio_front").value = "";
+            document.getElementById("diameter_front").value = "";
+            document.getElementById("fl").value = "";
+            document.getElementById("fr").value = "";
+            document.getElementById("rl").value = "";
+            document.getElementById("rr").value = "";
+            document.getElementById("brand_rear").value = "";
+            document.getElementById("width_rear").value = "";
+            document.getElementById("ratio_rear").value = "";
+            document.getElementById("diameter_rear").value = "";
+            document.getElementById("note").value = "";
+
+            document.getElementById("submit-btn").textContent = "Add";
+            editingcustomerId = null;
+        }
+
+        // Deletes a customer by ID
+        async function deletecustomer(id) {
+            await fetch(`${apiUrl}/customers/${id}`, { method: "DELETE" });
+            fetchcustomers();
+        }
+
+        // Initial load of customers on page load
+        fetchcustomers();
+    </script>
+</body>
+
+</html>
