@@ -48,6 +48,10 @@ This makes Reifen Hotel ideal for:
   <img src="Screenshots/TireHotel.png" width="100%">
 </p>
 
+<p align="center">
+  <img src="Screenshots/TireHotel2.png" width="50%">
+</p>
+
 ---
 
 ## 📡 Access from other devices
