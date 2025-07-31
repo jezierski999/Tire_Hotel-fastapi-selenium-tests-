@@ -1,6 +1,6 @@
-# Reifen Hotel 🛞🏡
+# Tire Hotel 🛞🏡
 
-**Reifen Hotel** is a local web application for managing seasonal wheel storage (e.g., summer/winter tires) for automotive workshops or garages.
+**Tire Hotel** is a local web application for managing seasonal wheel storage (e.g., summer/winter tires) for automotive workshops or garages.
 
 The system allows you to store detailed customer and tire information, such as:
 - Customer name and address
