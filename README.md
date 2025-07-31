@@ -105,6 +105,8 @@ Example `requirements.txt`:
 ```
 fastapi
 uvicorn
+sqlalchemy
+pytest
 selenium
 ```
 
