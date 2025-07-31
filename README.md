@@ -44,7 +44,9 @@ This makes Reifen Hotel ideal for:
 
 ## 📷 Screenshots
 
-Coming soon...
+<p align="center">
+  <img src="screenshots/TireHotel.png" width="60%">
+</p>
 
 ---
 
