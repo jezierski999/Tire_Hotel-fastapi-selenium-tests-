@@ -60,7 +60,7 @@ When you start the server, it runs on `http://<your-device-ip>:8080`.
 
 Example:
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
 python -m http.server 8080
 ```
 
@@ -117,7 +117,7 @@ selenium
 3. Clone the project and run:
 
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
 python -m http.server 8080
 ```
 
