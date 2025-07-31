@@ -7,7 +7,7 @@ The system allows you to store detailed customer and tire information, such as:
 - Season (e.g., Winter/Summer)
 - Type of rims
 - Tire brand, size, and wear (per wheel)
-- Notes for each customer
+- Notes for recording the storage location of the customer’s tires.
 
 ## 💡 Concept
 
@@ -20,7 +20,6 @@ The idea behind this project is **simplicity and portability**:
 This makes Reifen Hotel ideal for:
 - Small workshops
 - Mobile tire services
-- Personal use at home
 
 ---
 
@@ -39,7 +38,7 @@ This makes Reifen Hotel ideal for:
 - **Backend**: FastAPI (Python)
 - **Frontend**: HTML + JavaScript (Vanilla)
 - **Database**: SQLite
-- **Testing**: Pytest + Selenium (for UI), HTTP-based API tests (optional)
+- **Testing**: Pytest + Selenium (for UI)
 
 ---
 
@@ -55,13 +54,14 @@ When you start the server, it runs on `http://<your-device-ip>:8080`.
 
 Example:
 ```bash
-python main.py
+uvicorn main:app --host 0.0.0.0 --port 8000
+python -m http.server 8080
 ```
 
 Then access it on another device in the same Wi-Fi network, like:
 
 ```
-http://192.168.1.254:8080/
+http://192.168.1.XXX:8080/
 ```
 
 You can bookmark this address on your smartphone or tablet.
@@ -75,7 +75,7 @@ Make sure you have Firefox and `geckodriver` installed.
 To run the UI tests:
 
 ```bash
-pytest test_customers_frontend.py
+pytest
 ```
 
 ---
@@ -111,7 +111,8 @@ selenium
 3. Clone the project and run:
 
 ```bash
-python main.py
+uvicorn main:app --host 0.0.0.0 --port 8000
+python -m http.server 8080
 ```
 
 ---
