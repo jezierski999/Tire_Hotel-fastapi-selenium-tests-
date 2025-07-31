@@ -3,7 +3,7 @@ from utils import add_customer, customer_exists, delete_customer, edit_customer
 
 # Test data
 surname = "Smith"
-new_surname = "Olderson"
+new_surname = "Alderson"
 firstname = "John"
 address = "4188 Linden Avenue, Lake Buena Vista"
 season = "Summer"
