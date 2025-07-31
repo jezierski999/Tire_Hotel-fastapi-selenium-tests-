@@ -121,16 +121,19 @@ python -m http.server 8080
 
 ```
 .
-├── main.py                # FastAPI server
-├── templates/             # HTML files
-├── static/                # JavaScript, CSS
-├── models.py              # SQLAlchemy models
-├── database.py            # DB engine and Base
-├── test_customers_frontend.py  # UI tests with Selenium
-├── utils.py               # Selenium test helpers
-├── conftest.py            # pytest setup
-└── requirements.txt
+├── main.py                         # FastAPI server
+├── database.py                     # DB engine and Base
+├── models.py                       # SQLAlchemy models
+├── index.html                      # Minimal frontend for interacting with the API
+├── requirements.txt                # List of Python dependencies
+├── tests/
+│   ├── test_customers_frontend.py  # UI tests with Selenium
+│   ├── conftest.py                 # Pytest fixtures for shared test setup
+│   └── utils.py                    # Selenium test helpers
+└── README.md                       # Project documentation
+
 ```
+
 
 ---
 
